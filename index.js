@@ -1,27 +1,34 @@
+
 //Task 1
-function convertFahrToCelsius(fahr){
-    if (isNaN(fahr)) {
-        console.log(`${fahr} is not a valid number, but a ${typeof(fahr)}`)
-    }
+function convertFahrToCelcius(fahr){
+    let output;
+    
+    if(Array.isArray(fahr)){
+output =(`${JSON.stringify(fahr)} is not a valid number but a/an ${Array.isArray(fahr)?"array":typeof(fahr)}`);
+}
+else if (isNaN(fahr) || typeof (fahr) === "boolean"){
+    output = (`${JSON.stringify(fahr)}  is not a valid number but a/an ${typeof(fahr)}`);
+}
+else {
+    let x = parseFloat(fahr)
+    let cel = ((x-32) * (5/9))
 
-    else if (Array.isArray(fahr)){
-        console.log(`${fahr}is not a valid number,but a ${typeof(fahr)}`)
-    }
-    else{
-        let x = parseFloat(fahr)
-        let cel = ((x-32) * (5/9))
-
-        console.log(x)
-        console.log(cel.toFixed(4))
-    }
+    output = (cel.toFixed(4))
+}
+console.log(output);
 }
 
-convertFahrToCelsius(0);
-convertFahrToCelsius("0");
-convertFahrToCelsius({temp:0});
-convertFahrToCelsius("stress");
-convertFahrToCelsius([1,2,3]);
-    
+convertFahrToCelcius(true);
+convertFahrToCelcius("0");
+convertFahrToCelcius(0);
+convertFahrToCelcius("maryam");
+convertFahrToCelcius([]);
+convertFahrToCelcius([1,2,3,4]);
+convertFahrToCelcius({});
+convertFahrToCelcius({d:0});
+convertFahrToCelcius("");
+
+
 
 //TASK 2
 function checkYuGiOh(n){
